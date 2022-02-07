@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+<!-- Calls upon template "base.html" -->
+{% block head %}
+<title>Vaccinaton Consent Form Signing</title>
+{% endblock %} <!-- inputs code in between into base.html at reference points -->
+
+
+{% block body %}
+<div class="content-boot">
+
+    <h1 style = "text-align: center;">Vaccination Consent Form Signing</h1>
+    <br>
+    <h3 style = "text-align: center;"><i>Please select a consent form to fill</i></h3>
+
+</div>
+
+<div class="interact"> <!-- class .interact from main.css -->
+    <form action="/" method="GET"> <!-- using bootstrap classes for buttons + own -->
+        <a href="{{ url_for('englishcovid19') }}" class= "btn btn-lg btn-outline-dark button1">Covid-19 Vaccine</a>
+        <a href="{{ url_for('mandarincovid19') }}" class= "btn btn-lg btn-outline-dark button1">新冠疫苗</a>
+
+    </form>
+</div>
+
+<div class="interact">
+    <form action="/" method="GET">
+        <a href="/englishflu/{{ consent_form.id }}" class= "btn btn-lg btn-outline-success button2">Flu Shot</a>
+        <a href="/mandarinflu/{{ consent_form.id }}" class= "btn btn-lg btn-outline-success button2">流感疫苗</a>
+
+    </form>
+
+
+</div>
+
+<hr>
+    <a href ="https://www.accesspharmacy.ca/">Main Website</a>
+    <img src="logo.jpg" alt="Access Pharmacy">
+
+
+{% endblock %}

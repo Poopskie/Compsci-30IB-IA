@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Covid-19 Consent Form</title>
+{% endblock %}
+
+
+
+
+{% block body %}
+<div class="content">
+    <h1>heyo</h1>
+
+
+
+    <div class="form">
+        <form action="/" method = 'POST'> <!-- using index to proocess the data -->
+            <label for="patient_first_name"><i>First Name:</i></label>
+            <input type="text" name="patient_first_name" id ="patient_first_name"><br><br>
+            <label for="patient_last_name"><i>Last Name:</i></label>
+            <input type="text" name="patient_last_name" id ="patient_last_name"><br><br>
+            
+
+            <label for="form_type">Verify your form type</label>
+            <select name="form_type" id="form_type">
+              <option value="englishcovid19">English -> Covid-19</option>
+              <option value="mandarincovid19">Mandarin -> Covid-19</option>
+            </select> <br><br>
+
+            <input type="submit" value="Start Session">
+        </form>
+
+
+    </div>
+
+
+
+</div>  
+{% endblock %}

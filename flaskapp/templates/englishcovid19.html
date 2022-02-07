@@ -1,0 +1,285 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Covid-19 Consent Form</title>
+{% endblock %}
+
+
+
+
+{% block body %}
+
+
+
+<div class="content">
+
+    <br>
+
+    <div class="content-boot">
+        <form action="/englishcovid19" method = 'POST'> <!-- using index to proocess the data -->
+
+            {{ form.hidden_tag() }} <!-- hidden tag helps encrypt and protect the data -->
+            
+            <fieldset class="form-group" style="margin-top: 5%;">
+                <legend class="border-bottom mb-6 pt-12"><b>Covid Vaccination Consent</b></legend>
+
+                <fieldset class="form-group" style="margin-top: 5%;">
+                    <legend class="border-bottom mb-4" style="margin-top: 5%; font-size: medium;"><i>Personal Information 
+                        <small>for the person being immunized</small></i></legend>
+
+                    <div class="input-group">
+                        <div class="form-group col-md-4" style="margin-bottom: 2%;"> <!-- using basic bootstrap classes from css here -->
+                            {{ form.first_name.label(class="form-control-label") }}
+                            {% if form.first_name.errors %} <!-- Jinja syntax for if statement -->
+                                {{ form.first_name(class="form-control is-invalid") }} <!-- is-invalid to change gui -->
+                                <div class="invalid-feedback"> <!-- outputting errors specified by wtforms -->
+                                    {% for error in form.first_name.errors %}
+                                        <span>{{ error }}</span> 
+                                    {% endfor %}
+                                </div>
+                            {% else %} <!-- using instance variables as labels from "form" -->
+                                {{ form.first_name(class="form-control") }}
+                            {% endif %}
+
+                        </div>
+
+                        <div class="form-group col-md-4" style="margin-left: 5%; margin-bottom: 2%;">
+                            {{ form.last_name.label(class="form-control-label") }}
+                            {% if form.last_name.errors %}
+                                {{ form.last_name(class="form-control is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.last_name.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.last_name(class="form-control") }}
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 2%;">
+                        {{ form.email.label(class="form-control-label") }}
+                        {% if form.email.errors %}
+                                {{ form.email(class="form-control is-invalid", placeholder="name@example.com") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.email.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                        {% else %}
+                            {{ form.email(class="form-control", placeholder="name@example.com") }}
+                        {% endif %}
+
+                    </div>
+
+                    <div class="input-group">
+                        <div class="form-group col-md-4" style="margin-bottom: 2%;">
+                            {{ form.birth_date.label(class="form-control-label") }}
+                            {% if form.birth_date.errors %}
+                                {{ form.birth_date(class="form-control is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.birth_date.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                            {{ form.birth_date(class="form-control") }}
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group col-md-4" style="margin-left: 5%; margin-bottom: 2%;">
+                            {{ form.PHN.label(class="form-control-label") }}
+                            {% if form.PHN.errors %}
+                                {{ form.PHN(class="form-control is-invalid", placeholder="XXXXX-XXXX") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.PHN.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.PHN(class="form-control", placeholder="XXXXX-XXXX") }}
+                            {% endif %}
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form-group" style="margin-top: 5%;">
+                    <legend class="border-bottom mb-4" style="margin-top: 5%; font-size: medium;"><i>Health Information</i></legend>
+
+                    <div class="input-group" style="margin-bottom: 5%;">
+                        {{ form.Hinfo1.label(class="form-check-label") }}
+
+                        <div class="form-group row">
+                            {{ form.Hinfo1(class="form-check col-sm-2") }}
+                            {{ form.Hinfo1string.label(class="col-form-control-label col-sm-4") }}
+                            <div class="col-sm-6">
+                                {{ form.Hinfo1string(class="form-control text-muted") }}
+                            </div> 
+                        </div>
+                    </div>
+
+                    <div class="input-group" style="margin-bottom: 5%;">
+                            {{ form.Hinfo2.label(class="form-check-label") }}
+
+                        <div class="form-group row">
+                            {{ form.Hinfo2(class="form-check col-sm-2") }}
+                            {{ form.Hinfo2string.label(class="col-form-control-label col-sm-4") }}
+                            <div class="col-sm-6">
+                                {{ form.Hinfo2string(class="form-control text-muted") }}
+                            </div>
+                        </div>  
+                    </div>
+
+                    <div class="input-group" style="margin-bottom: 5%;">
+                        {{ form.Hinfo3.label(class="form-check-label") }}
+
+                        <div class="form-group row">
+                            {{ form.Hinfo3(class="form-check col-sm-2") }}
+                            {{ form.Hinfo3string.label(class="col-form-control-label col-sm-4") }}
+                            <div class="col-sm-6">
+                                {{ form.Hinfo3string(class="form-control text-muted") }}
+                            </div>
+                        </div>  
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 5%;">
+                        {{ form.Hinfo4.label(class="form-check-label") }}
+                        {{ form.Hinfo4(class="form-check") }}
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 5%;">
+                        {{ form.Hinfo5.label(class="form-check-label") }}
+                        {{ form.Hinfo5(class="form-check") }}
+                    </div>
+
+
+                    <div class="input-group" style="margin-bottom: 5%;">
+                        {{ form.Hinfo6.label(class="form-check-label") }}
+
+                        <div class="form-group row">
+                            {{ form.Hinfo6(class="form-check col-sm-3") }}
+                            {{ form.Hinfo6date.label(class="col-form-control-label col-sm-3") }}
+                            <div class="col-sm-6">
+                                {{ form.Hinfo6date(class="form-control text-muted") }}
+                            </div>
+                        </div>  
+                    </div>
+
+                    <div class="input-group" style="margin-bottom: 5%;">
+                        {{ form.Hinfo7.label(class="form-check-label") }}
+
+                        <div class="form-group row">
+                            {{ form.Hinfo7(class="form-check col-sm-3") }}
+                            {{ form.Hinfo7string.label(class="col-form-control-label col-sm-3") }}
+                            <div class="col-sm-6">
+                                {{ form.Hinfo7string(class="form-control text-muted") }}
+                            </div>
+                        </div>  
+                    </div>
+
+                    <div class="input-group" style="margin-bottom: 5%;">
+                        {{ form.Hinfo8.label(class="form-check-label") }}
+
+                        <div class="form-group row">
+                            {{ form.Hinfo8(class="form-check col-sm-3") }}
+                            {{ form.Hinfo8string.label(class="col-form-control-label col-sm-3") }}
+                            <div class="col-sm-6">
+                                {{ form.Hinfo8string(class="form-control text-muted") }}
+                            </div>
+                        </div>  
+                    </div>
+                    
+
+
+
+
+
+                </fieldset>
+
+                <fieldset class="text" style="margin-top: 5%;">
+                    <legend class="border-bottom mb-4" style="margin-top: 5%; font-size: medium;"><i>Consent for Immunization</i></legend>
+                    <p>
+                        <b>I confirm</b> that I have read the COVID-19 vaccine information. 
+                        I know about and understand the risks, benefits, and common side effects of this vaccine. 
+                        Any questions I may have had about this person getting this vaccine have been answered by 
+                        calling the local public health office or Health Link at 811. 
+
+                        <b>I understand</b> the information I have been given.
+
+                        <b>I understand</b> this consent is for all doses of the vaccine.
+
+                        <b>I will contact</b> the local public health office or the healthcare provider giving the COVID-19 vaccine if the person being immunized:
+                        • has any changes to their health before getting any dose of the COVID-19 vaccine
+                        • gets another vaccine in the 14 days before they get any dose of the COVID-19 vaccine
+                        • has a severe or unusual side effect after the first dose ofthe COVID-19 vaccine 
+                        (other than the expected side effects listed on the COVID-19 vaccine information sheet provided)
+
+                        <b>I consent</b> to this person getting the COVID-19 immunization.
+
+                        <b>I understand</b> that I may withdraw this consent at any time by calling the healthcare 
+                        provider giving the COVID-19 vaccine.
+
+                        <b>I confirm</b> that I have the legal authority to consent to this immunization
+
+                    </p>
+
+                    <div class="input-group">
+                        <div class="form-group col-md-5" style="margin-bottom: 2%;"> <!-- using basic bootstrap classes from css here -->
+                            {{ form.consentgiver.label(class="form-control-label") }}
+                            {{ form.consentgiver(class="form-control") }}
+                        </div>
+
+                        <div class="form-group col-md-5" style="margin-left: 5%; margin-bottom: 5%;">
+                            {{ form.phone.label(class="form-control-label") }}    
+                            {{ form.phone(class="form-control") }}
+                        </div>
+                    </div>
+
+
+                    <div class="form-group col-md-6"> <!-- using basic bootstrap classes from css here -->
+                        {{ form.relationshipto.label(class="form-control-label") }}
+                        {{ form.relationshipto(class="custom-select my-1 mr-sm-2") }}
+                    </div>
+
+                    <div class="form-group col-md-3" style= "margin-top: 10%; margin-bottom: 2%;">
+                        {{ form.signature.label(class="form-control-label") }}    
+                        {{ form.signature(class="form-control") }}
+                    </div>
+
+
+
+
+                </fieldset>
+
+                <fieldset class="form-group">
+
+
+
+
+                </fieldset>
+
+            </fieldset>
+            <br>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+
+        </form>
+
+
+    </div>
+
+    <div class="border-top pt-3"> <!-- send user back to main page if they are on the wrong form -->
+        <small class="text-muted">
+            Wrong Form? <a href="{{ url_for('index') }}">Home Page</a>
+        </small> <!-- using url_for to generate link for function 'index' -->
+    </div>
+
+
+
+</div>  
+
+
+
+{% endblock %}
