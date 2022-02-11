@@ -22,7 +22,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # linking sql database + Initializing with settings from "app"
 db = SQLAlchemy(app) 
 
-# secret key is used ----------------------------------------//???
+# secret key is used ----------------------------------------
 app.config['SECRET_KEY'] = '9dad5ef9d72c5d4a60a8e6484a3ea272'
 
 from flaskapp import routes # avoiding circular importation
