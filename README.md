@@ -9,3 +9,11 @@ Currently incomplete
 
 '''
 
+# How to Import
+
+1. Clone Repo
+2. Create virtual env -> [python3 -m venv env]
+3. Activate virtual env -> [./env/Scripts/activate]
+4. Download libraries -> [pip install -r packages.txt]
+5. Make sure using correct python
+6. Done
