@@ -1,13 +1,9 @@
 # Compsci-30IB-IA
 
-'''
-Here is a snippet of my computer science 30ib internal assessment
+For my Computer Science Internal Assesment I helped a client make an online consent form filler
+This webapp encorporates Flask and SQLAlchemy to store and collect form data
+As well as uses FPDF2 to convert Database columns into pdfs
 
-It is a webapp for vaccination consent forms
-
-Currently incomplete
-
-'''
 
 # How to Import
 
